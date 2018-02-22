@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import Cookie from 'js-cookie';
 import steem from 'steem';
 import Raven from 'raven-js';
 import Logger from 'js-logger';
@@ -31,11 +30,6 @@ const logPageView = () => {
 if (process.env.SENTRY_PUBLIC_DSN) {
   Raven.config(process.env.SENTRY_PUBLIC_DSN).install();
 }
-
-/*const session = Cookie.get('session');
-if (!session && process.env.UTOPIAN_LANDING_URL) {
-  window.location.href = process.env.UTOPIAN_LANDING_URL;
-}*/
 
 steem.api.setOptions({ transport: 'http' });
 if (process.env.STEEMJS_URL) {
