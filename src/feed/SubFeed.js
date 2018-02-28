@@ -170,8 +170,7 @@ class SubFeed extends React.Component {
         } else if (match.params.type === 'tasks') {
           // console.log("PATH1 /tasks ");
           return contribution.json_metadata.repository.id === parseInt(match.params.repoId) &&
-            contribution.reviewed === true && !contribution.flagged &&
-            contribution.json_metadata.type.indexOf('task') > -1;
+            !contribution.flagged && contribution.json_metadata.type.indexOf('task') > -1;
         }
         return contribution.json_metadata.repository.id === parseInt(match.params.repoId) &&
             contribution.reviewed === true &&
