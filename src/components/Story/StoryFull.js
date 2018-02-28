@@ -582,7 +582,7 @@ class StoryFull extends React.Component {
               }}
             />*/}
 
-            {!post.reviewed && !post.flagged || (isModerator.supermoderator === true) ? <Action
+            {post.json_metadata.type.indexOf('task-') === -1 && (!post.reviewed && !post.flagged || (isModerator.supermoderator === true)) ? <Action
               id="verified"
               className={`${mobileView ? 'StoryFull__mobilebtn' : ''}`}
               primary={true}
