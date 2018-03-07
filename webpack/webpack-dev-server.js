@@ -44,17 +44,17 @@ module.exports = {
         STEEM_NODE: JSON.stringify(process.env.STEEM_NODE || 'https://api.steemit.com'),
         SERVER_SSL_CERT: JSON.stringify(process.env.SERVER_SSL_CERT),
         SERVER_SSL_KEY: JSON.stringify(process.env.SERVER_SSL_KEY),
-        UTOPIAN_STEEM_ACCOUNT: JSON.stringify(process.env.UTOPIAN_STEEM_ACCOUNT || 'utopian-io'),
+        UTOPIAN_STEEM_ACCOUNT: JSON.stringify(process.env.UTOPIAN_STEEM_ACCOUNT || 'blockdoc'),
         UTOPIAN_CATEGORY: JSON.stringify(process.env.UTOPIAN_CATEGORY || 'test-category'),
-        UTOPIAN_LANDING_URL: JSON.stringify(process.env.UTOPIAN_LANDING_URL || 'http://join.utopian.io'),
+        UTOPIAN_LANDING_URL: JSON.stringify(process.env.UTOPIAN_LANDING_URL || 'http://join.blockdoc.pro'),
         UTOPIAN_API: JSON.stringify(UTOPIAN_API),
-        UTOPIAN_APP: JSON.stringify(process.env.UTOPIAN_APP || 'utopian.app'),
+        UTOPIAN_APP: JSON.stringify(process.env.UTOPIAN_APP || 'blockdoc.app'),
         UTOPIAN_GITHUB_CLIENT_ID: JSON.stringify(process.env.UTOPIAN_GITHUB_CLIENT_ID || '1ed58da028b638550c03'),
         UTOPIAN_GITHUB_REDIRECT_URL: JSON.stringify(UTOPIAN_GITHUB_REDIRECT_URL),
         STEEMJS_URL: JSON.stringify(process.env.STEEMJS_URL),
         IS_BROWSER: JSON.stringify(true),
         PUSHPAD_PROJECT_ID: process.env.PUSHPAD_PROJECT_ID,
-        BUSYPUSH_ENDPOINT: process.env.BUSYPUSH_ENDPOINT
+        BUSYPUSH_ENDPOINT: process.env.BUSYPUSH_ENDPOINT,
       },
     }),
   ],
@@ -108,7 +108,7 @@ module.exports = {
     proxy: {
       '/callback': {
         target: USE_SSL ? 'https://localhost:3001' : 'http://localhost:3001',
-        secure: false
+        secure: false,
       }
     }
   }
