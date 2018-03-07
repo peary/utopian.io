@@ -6,9 +6,10 @@ const config = require('config');
 const app = require('./app').app;
 const debug = require('debug')('busy:server');
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 
-if (process.env.NODE_ENV === 'production') import('newrelic');
+// if (process.env.NODE_ENV === 'production') import('newrelic');
 
 /**
  * Normalize a port into a number, string, or false.
@@ -87,14 +88,15 @@ if (!module.parent) {
 }
 
 if (process.env.SERVER_SSL_CERT && process.env.SERVER_SSL_KEY) {
-  const options = {
-    cert: fs.readFileSync(process.env.SERVER_SSL_CERT),
-    key: fs.readFileSync(process.env.SERVER_SSL_KEY)
-  };
-
-  https.createServer(options, app).listen(443);
+  // const options = {
+  //   cert: fs.readFileSync(process.env.SERVER_SSL_CERT),
+  //   key: fs.readFileSync(process.env.SERVER_SSL_KEY)
+  // };
+  //
+  // https.createServer(options, app).listen(443);
+  http.createServer(app).listen(8080);
 } else {
-  http.createServer(app).listen(80);
+  http.createServer(app).listen(8080);
 }
 
 server.on('error', onError);
